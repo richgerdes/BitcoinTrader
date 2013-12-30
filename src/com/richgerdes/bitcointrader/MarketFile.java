@@ -5,12 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MarketWatcher extends Thread {
-	
-	private ArrayList<Strategy> stratagies = new ArrayList<Strategy>();
+public class MarketFile extends Market {
+
 	private ArrayList<Float> trades = new ArrayList<Float>();
 	
-	public MarketWatcher(){
+	public MarketFile(){
 		importTrades();
 	}
 	
@@ -40,19 +39,10 @@ public class MarketWatcher extends Thread {
 	public void run(){
 		
 		for(float value : trades){
-			for(Strategy s : stratagies){
-				s.tradeAt(value);
-			}
+			tradeAt(value);
 		}
 		
-		for(Strategy s : stratagies){
-			System.out.println(s.getName() + ": " + s.totalValueUSD(837));
-			System.out.println(s.getName() + ": " + s.totalValueUSD(trades.get(trades.size() - 1)));
-		}
+		printStradegyWorths(837);
+		printStradegyWorths(trades.get(trades.size() - 1));
 	}
-
-	public void addStratagy(Strategy s) {
-		stratagies.add(s);
-	}
-
 }
