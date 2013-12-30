@@ -1,9 +1,13 @@
 package com.richgerdes.bitcointrader;
 
 public abstract class Strategy {
+	
+	public String name = "NoName";
 
 	protected Account usd;
 	protected Account btc;
+
+	private boolean output = true;
 
 	protected Strategy(float startingUSD, float startingBTC) {
 		usd = new Account(startingUSD, "USD");
@@ -29,4 +33,26 @@ public abstract class Strategy {
 	}
 	
 	public abstract void tradeAt(float currentPrice);
+
+	public String getName() {
+		return name;
+	}
+	
+	protected void output(String line){
+		if(!output ){
+			System.out.println(name + ": " + line);
+		}
+	}
+	
+	public void ouputON(){
+		output = true;
+	}
+	
+	public void ouputOFF(){
+		output = false;
+	}
+	
+	public void turnOutput(boolean b){
+		output = b;
+	}
 }

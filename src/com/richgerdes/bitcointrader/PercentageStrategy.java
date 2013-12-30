@@ -14,6 +14,10 @@ public class PercentageStrategy extends Strategy{
 	public PercentageStrategy(float usd, float btc, float factor){
 		super(usd, btc);
 		this.factor = factor;
+		
+		name = "Percen";
+		
+		turnOutput(false);
 	}
 
 	@Override
@@ -25,11 +29,11 @@ public class PercentageStrategy extends Strategy{
 		
 		if(peak < currentPrice){
 			peak = currentPrice;
-			//System.out.println("New Peak: " + peak);
+			//output("New Peak: " + peak);
 		}
 		if(trough > currentPrice){
 			trough = currentPrice;
-			//System.out.println("New Trough: " + trough);
+			//output("New Trough: " + trough);
 		}
 		
 		buy(currentPrice);
@@ -42,10 +46,10 @@ public class PercentageStrategy extends Strategy{
 		if(usd.getBalance() < 0.01f)
 			return;
 		
-		if(currentPrice > trough && (currentPrice - trough) / trough > 0.01f){
+		if(currentPrice > trough && (currentPrice - trough) / trough > factor){
 			float toBuy = usd.getBalance() / currentPrice;
 
-			System.out.println("Buying " + toBuy + "BTC @ " + currentPrice + "USD");
+			output("Buying " + toBuy + "BTC @ " + currentPrice + "USD");
 			
 			btc.deposit(toBuy);
 			usd.withdraw(toBuy * currentPrice);
@@ -63,10 +67,10 @@ public class PercentageStrategy extends Strategy{
 		if(currentPrice < lastBuy)
 			return;
 		
-		if(currentPrice > trough && (peak - currentPrice) / (peak - lastBuy) > 0.05f){
+		if(currentPrice > trough && (peak - currentPrice) / (peak - lastBuy) > 5 * factor){
 			float toSell = btc.getBalance();
 
-			System.out.println("Selling " + toSell + "BTC @ " + currentPrice + "USD");
+			output("Selling " + toSell + "BTC @ " + currentPrice + "USD");
 			
 			btc.withdraw(toSell);
 			usd.deposit(toSell * currentPrice);

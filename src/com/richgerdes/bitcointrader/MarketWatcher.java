@@ -46,12 +46,12 @@ public class MarketWatcher extends Thread {
 		}
 		
 		for(Strategy s : stratagies){
-			System.out.println(s.totalValueUSD(837));
-			System.out.println(s.totalValueUSD(trades.get(trades.size() - 1)));
+			System.out.println(s.getName() + ": " + s.totalValueUSD(837));
+			System.out.println(s.getName() + ": " + s.totalValueUSD(trades.get(trades.size() - 1)));
 		}
 	}
 
-	public void addStratagy(PercentageStrategy s) {
+	public void addStratagy(Strategy s) {
 		stratagies.add(s);
 	}
 
