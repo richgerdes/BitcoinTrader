@@ -4,28 +4,10 @@
 	<groupId>BitcoinTrader</groupId>
 	<artifactId>BitcoinTrader</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source />
-					<target />
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 	<dependencies>
 		<dependency>
 			<groupId>com.xeiam.xchange</groupId>
 			<artifactId>xchange-core</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-examples</artifactId>
 			<version>1.10.0</version>
 		</dependency>
 		<dependency>
@@ -35,22 +17,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-bitcurex</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
 			<artifactId>xchange-bitstamp</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-blockchain</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-btcchina</artifactId>
 			<version>1.10.0</version>
 		</dependency>
 		<dependency>
@@ -65,22 +32,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-cavirtex</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-kraken</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
 			<artifactId>xchange-mtgox</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-openexchangerates</artifactId>
 			<version>1.10.0</version>
 		</dependency>
 	</dependencies>
